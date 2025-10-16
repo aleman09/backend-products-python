@@ -26,7 +26,7 @@ DATABASE_URL = f"mysql+pymysql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 # ⚙️ 5. Importar todos los modelos aquí
-from app.models import Base, Category, Product, Role
+from app.models import Base, Category, Product, Role, User
 
 # ⚙️ 6. Asignar metadata
 target_metadata = Base.metadata
