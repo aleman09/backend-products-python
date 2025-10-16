@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey, JSON
 from sqlalchemy.orm import relationship
 from .database import Base
 
@@ -19,3 +19,14 @@ class Product(Base):
     category_id = Column(Integer, ForeignKey("categories.id"))
     price = Column(Integer, nullable=True)
     category = relationship("Category", back_populates="products")
+
+# ///////////////////////////////////////////////////////////////////////////////
+
+# ///////////////////////////////////////////////////////////////////////////////
+
+class Role(Base):
+    __tablename__ = "roles"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String(100), unique=True, nullable=False)
+    permissions = Column(JSON, nullable=False, default=list)
